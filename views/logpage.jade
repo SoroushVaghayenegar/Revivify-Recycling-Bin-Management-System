@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  .container
+    .jumbotron
+      h1(style = "text-align: center;")= title
+      .table-responsive
+        table.table
+          tr
+            th Location
+            th Weight
+            th Est. % FULL
+            th Time Logged
+            th Last Pickup
+            th
+            th
+
+            each data, i in datalist
+              tr
+                td granville
+                td "#{data.weight}" KG
+                td est
+                td  #{data.time}
+                td time
+                td 
+                  a.btn.btn-lg.btn-success(href='#', role='button') On Pickup docs
+                td 
+                  a.btn.btn-lg.btn-info(href='#', role='button') Bin Settings
+
+
+  
+  

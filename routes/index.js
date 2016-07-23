@@ -3,20 +3,20 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'MCU' });
+  res.render('index', { title: 'Revivify' });
 
 
 });
 
 
 
-/* GET Userlist page. */
-router.get('/datalist', function(req, res) {
+/* GET logpage page. */
+router.get('/logpage', function(req, res) {
     var db = req.db;
     var collection = db.get('datacollection');
     collection.find({},{},function(e,docs){
-        res.render('datalist', {
-        	title: 'LIST',
+        res.render('logpage', {
+        	title: 'Log Page',
             "datalist" : docs
         });
     });
@@ -49,6 +49,28 @@ router.post('/adddata', function(req, res){
 			res.redirect("datalist");
 		}
 	});
+});
+
+
+/* GET Pickup List page. */
+router.get('/pickup-list', function(req, res, next) {
+  res.render('pickup-list', { title: 'Pickup List' });
+
+
+});
+
+/* GET Pickup List page. */
+router.get('/pickup-map', function(req, res, next) {
+  res.render('pickup-map', { title: 'Pickup Map' });
+
+
+});
+
+/* GET Pickup List page. */
+router.get('/add-bin', function(req, res, next) {
+  res.render('add-bin', { title: 'Add Bin' });
+
+
 });
 
 module.exports = router;

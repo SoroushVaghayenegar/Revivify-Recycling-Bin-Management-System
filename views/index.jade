@@ -1,7 +1,22 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}  Web application
-  p To see the data list 
-  a(href='/datalist') CLICK HERE
+  .container
+      // Main component for a primary marketing message or call to action
+      .jumbotron
+        h1(style = "text-align: center;") Textile Recycling Bin Management System
+        
+        #map
+        script(src='javascripts/locations-map.js')
+        
+        
+        h2(style = "text-align: center;")
+          Bin Fill %:
+          img(src= "/images/pingreen.png") 
+          span 90-100% 
+          img(src= "/images/pinyellow.png") 
+          span 70-90% 
+          img(src= "/images/pinred.png")
+          span 50-70% 
+          img(src= "/images/pinwhite.png")
+          span 0-50% 

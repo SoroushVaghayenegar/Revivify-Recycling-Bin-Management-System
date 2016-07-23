@@ -6,11 +6,7 @@ block content
   ul
         each data, i in datalist
             li
-                #{data.weight} KG   #{data.time} PM
+                "#{data.weight}" KG  was recorded at #{data.time} 
 
-  h1 ADD DATA
-    form#formAddUser(name="adduser",method="post",action="/adddata")
-        input#inputWeight(type="text", placeholder="weight", name="weight")
-        input#inputTime(type="text", placeholder="time", name="time")
-        button#btnSubmit(type="submit") submit
+  
   

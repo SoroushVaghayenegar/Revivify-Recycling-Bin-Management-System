@@ -45,7 +45,7 @@ router.put('/update-bin', function(req, res){
 	var db = req.db;
 
 	//Get our form values from "name attributes"
-	var weight = req.query.weight;
+	var est = req.query.est;
 	var time = req.query.time;
 	var id = req.query.id;
 
@@ -56,7 +56,7 @@ router.put('/update-bin', function(req, res){
 	collection.update( 
 		{ _id: id }, 
 		{ $set: { 
-			"weight" : weight,
+			"est" : est,
 			"time" : time} },
 		function(err, doc){
 			if(err){

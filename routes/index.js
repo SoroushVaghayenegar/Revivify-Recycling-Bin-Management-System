@@ -68,13 +68,6 @@ router.put('/update-bin', function(req, res){
 });
 
 
-/* GET Pickup List page. */
-router.get('/pickup-list', function(req, res, next) {
-  res.render('pickup-list', { title: 'Pickup List' });
-
-
-});
-
 /* GET Pickup Map page. */
 router.get('/pickup-map', function(req, res, next) {
   res.render('pickup-map', { title: 'Pickup Map' });

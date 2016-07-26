@@ -9,18 +9,18 @@ block content
         p - Now fill out the following information for the wi-fi and bin information: 
         
         form#formAddBin(name="addbin",method="post",action="/add-bin")
-          |SSID:
+          |SSID:  
           input#inputssid(type="text", placeholder="SSID", name="ssid")
           br
-          |Password:
+          |Password: 
           input#inputpassword(type="text", placeholder="Password", name="password")
           br
-          |Location
-          input#inputlocation(type="text", placeholder="Street Address", name="location")
+          |Location  
+          input#inputlocation(type="text", placeholder="Type and pick one from the list", name="location")
           br
           input#inputlat(type="text", name="lat")
           input#inputlng(type="text", name="lng")
-          button#btnSubmit(type="submit") submit
+          button#btnSubmit(type="submit") Add Bin!
 
 
         

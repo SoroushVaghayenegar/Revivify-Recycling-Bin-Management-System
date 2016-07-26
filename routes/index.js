@@ -63,6 +63,9 @@ router.put('/update-bin', function(req, res){
 				//if failed return err
 				res.send("problem adding bin to pickup");
 			}
+			else{
+				res.send("Bin Updated")
+			}
 			
 	});
 });

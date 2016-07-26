@@ -21,7 +21,7 @@ block content
                   td #{bin.location}
                   td #{bin.weight} KG
                   td #{bin.est} %
-                  td #{bin.location_object}
+                  td #{bin.time}
                   td #{bin.last_pickup}
                   td 
                     button.btn.btn-success(onclick="removePickup('#{bin._id}', this)") On Pickup
@@ -48,7 +48,7 @@ block content
                   td #{bin.location}
                   td #{bin.weight} KG
                   td #{bin.est} %
-                  td #{bin.location_object}
+                  td #{bin.time}
                   td #{bin.last_pickup}
                   td 
                     button.btn.btn-default(onclick="addToPickup('#{bin._id}', this)") Add To Pickup

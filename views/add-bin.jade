@@ -4,5 +4,28 @@ block content
   .container
       // Main component for a primary marketing message or call to action
       .jumbotron
-        h1(style = "text-align: center;") Under Construction
+        p - Please connect to the local wi-fi named "Re-Vivify Bin"
+         
+        p - Now fill out the following information for the wi-fi and bin information: 
         
+        form#formAddBin(name="addbin",method="post",action="/add-bin")
+          |SSID:
+          input#inputssid(type="text", placeholder="SSID", name="ssid")
+          br
+          |Password:
+          input#inputpassword(type="text", placeholder="Password", name="password")
+          br
+          |Location
+          input#inputlocation(type="text", placeholder="Street Address", name="location")
+          br
+          input#inputlat(type="text", name="lat")
+          input#inputlng(type="text", name="lng")
+          button#btnSubmit(type="submit") submit
+
+
+        
+
+        script(src='javascripts/add-bin.js')
+
+        script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOTTSJcMkA7x7JzaP0Z7NpPzfl5m6tsu8&libraries=places&callback=initAutocomplete"
+        async defer)

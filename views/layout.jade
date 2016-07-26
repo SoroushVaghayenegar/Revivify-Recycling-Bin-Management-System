@@ -2,9 +2,9 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
     link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
-    
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
   body
     .navbar.navbar-default.navbar-fixed-top(role='navigation')
       .container
@@ -19,9 +19,9 @@ html
         .navbar-collapse.collapse
           ul.nav.navbar-nav
             li
-              a(href='/') Locations Map
+              a(href='/') Map
             li
-              a(href='/logpage') Log Page
+              a(href='/bins') Bins
             li
               a(href='/pickup-list') Pickups List
             li
@@ -43,5 +43,4 @@ html
     
 
     block content
-    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBi0rBpk374n574B7ElpMEzDhIUUBKpe10&callback=initMap'
-    async defer)
+    

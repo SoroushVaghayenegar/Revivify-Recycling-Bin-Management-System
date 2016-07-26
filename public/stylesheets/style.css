@@ -1,12 +1,8 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-
+  background-image: url("../images/pattern.png");
 }
 
-a {
-  color: #00B7FF;
-}
+
 
 table, th, td {
     border: 1px solid black;
@@ -14,6 +10,18 @@ table, th, td {
     text-align: center;
 }
 
+input{
+	width: 50%;
+}
+
+.loading{
+	display: none;
+}
+
 #map{
 	height: 500px;
+}
+
+#inputlng , #inputlat{
+	display: none;
 }

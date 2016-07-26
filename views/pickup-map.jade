@@ -4,5 +4,10 @@ block content
   .container
       // Main component for a primary marketing message or call to action
       .jumbotron
-        h1(style = "text-align: center;") Under Construction
+        h1(style = "text-align: center;") 
         
+        #map
+        script(src='javascripts/pickups-map.js')
+
+        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAOTTSJcMkA7x7JzaP0Z7NpPzfl5m6tsu8&callback=initMap'
+    async defer)

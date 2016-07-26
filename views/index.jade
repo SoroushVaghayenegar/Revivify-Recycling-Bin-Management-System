@@ -4,19 +4,22 @@ block content
   .container
       // Main component for a primary marketing message or call to action
       .jumbotron
-        h1(style = "text-align: center;") DwainBro Faggot System
+        h1(style = "text-align: center;") Textile Recycling Bin Management System
         
         #map
-        script(src='javascripts/locations-map.js')
+        script(src='javascripts/map.js')
         
         
         h2(style = "text-align: center;")
           Bin Fill %:
-          img(src= "/images/pingreen.png") 
+          img(src= "/images/pinred.png") 
           span 90-100% 
           img(src= "/images/pinyellow.png") 
           span 70-90% 
-          img(src= "/images/pinred.png")
+          img(src= "/images/pingreen.png")
           span 50-70% 
           img(src= "/images/pinwhite.png")
-          span 0-50% 
+          span 0-50%
+
+        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAOTTSJcMkA7x7JzaP0Z7NpPzfl5m6tsu8&callback=initMap'
+    async defer) 

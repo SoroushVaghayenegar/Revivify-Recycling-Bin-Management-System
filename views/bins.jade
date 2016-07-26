@@ -1,0 +1,61 @@
+extends layout
+
+block content
+  .container
+    .jumbotron
+      h3(style = "text-align: center;") On Pickup Bins
+      .table-responsive#on_pickup_bins
+        table.table
+          tr.success
+            th Location
+            th Weight
+            th Est. % FULL
+            th Time Logged
+            th Last Pickup
+            th
+            th
+
+            each bin, i in binlist
+              if bin.on_pickup == true
+                tr
+                  td #{bin.location}
+                  td #{bin.weight} KG
+                  td #{bin.est} %
+                  td #{bin.location_object}
+                  td #{bin.last_pickup}
+                  td 
+                    button.btn.btn-success(onclick="removePickup('#{bin._id}', this)") On Pickup
+                      img.loading(src="images/loading.gif", style="width: 20%")
+                  td 
+                    a.btn.btn-lg.btn-info(href='#', role='button') Bin Settings
+       
+
+       h3(style = "text-align: center;") None Pickup Bins
+      .table-responsive#none_pickup_bins
+        table.table
+          tr.info
+            th Location
+            th Weight
+            th Est. % FULL
+            th Time Logged
+            th Last Pickup
+            th
+            th
+
+            each bin, i in binlist
+              if bin.on_pickup == false
+                tr
+                  td #{bin.location}
+                  td #{bin.weight} KG
+                  td #{bin.est} %
+                  td #{bin.location_object}
+                  td #{bin.last_pickup}
+                  td 
+                    button.btn.btn-default(onclick="addToPickup('#{bin._id}', this)") Add To Pickup
+                      img.loading(src="images/loading.gif", style="width: 20%")
+                  td 
+                    a.btn.btn-lg.btn-info(href='#', role='button') Bin Settings
+
+  script(src='javascripts/bins.js')
+  
+  

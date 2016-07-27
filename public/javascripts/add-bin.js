@@ -12,6 +12,12 @@ autocomplete = new google.maps.places.Autocomplete(
 // fields in the form.
 autocomplete.addListener('place_changed', fillInAddress);
 
+$('#inputlocation').keypress(function(e) {
+  if (e.which == 13) {
+  	e.preventDefault(); 
+  }
+});
+
 }
 
 function fillInAddress() {

@@ -4,9 +4,16 @@ block content
   .container
       // Main component for a primary marketing message or call to action
       .jumbotron
-        h1(style = "text-align: center;") 
+        br
+        #panel
+          b Select Bin: 
+          select#selectbin
+            option(value="-") Select a bin to get directions
+            each bin, i in binlist
+              option(value="#{bin.lat},#{bin.lng}") #{bin.location}
+        br
         
-        #map
+        #pickup-map
         script(src='javascripts/pickups-map.js')
 
         script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAOTTSJcMkA7x7JzaP0Z7NpPzfl5m6tsu8&callback=initMap'

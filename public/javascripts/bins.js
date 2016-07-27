@@ -7,9 +7,8 @@ function addToPickup(id){
     		}
 	});
 	setTimeout(function(){
-	    $('#none_pickup_bins').load(document.URL +  ' #none_pickup_bins');
-		$('#on_pickup_bins').load(document.URL +  ' #on_pickup_bins');
-	}, 500);
+	    $('#tables').load(document.URL +  ' #tables');
+	}, 200);
 }
 
 function removePickup(id){
@@ -21,9 +20,8 @@ function removePickup(id){
     		}
 	});
 	setTimeout(function(){
-	    $('#none_pickup_bins').load(document.URL +  ' #none_pickup_bins');
-		$('#on_pickup_bins').load(document.URL +  ' #on_pickup_bins');
-	}, 500);
+		$('#tables').load(document.URL +  ' #tables');
+	}, 200);
 
 }
 

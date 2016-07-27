@@ -73,10 +73,16 @@ router.put('/update-bin', function(req, res){
 
 /* GET Pickup Map page. */
 router.get('/pickup-map', function(req, res, next) {
-  res.render('pickup-map', { title: 'Pickup Map' });
-
-
+  var db = req.db;
+  var collection = db.get('binscollection');
+  collection.find({},{},function(e,docs){
+	res.render('pickup-map', {
+    	title: 'Pickup Map',
+        "binlist" : docs
+    });
+  });
 });
+
 
 /* GET Add Bin page. */
 router.get('/add-bin', function(req, res, next) {

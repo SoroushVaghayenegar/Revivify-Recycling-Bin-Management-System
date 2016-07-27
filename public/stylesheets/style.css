@@ -22,11 +22,12 @@ input{
 	float: left;
 	text-align: center;
 	vertical-align: middle;
+	margin-left: -5%;
 }
 
 #map{
 	height: 500px;
-	width:85%;
+	width:90%;
 }
 
 #inputlng , #inputlat{

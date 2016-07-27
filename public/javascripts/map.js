@@ -3,8 +3,7 @@ var map;
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
 	    center: {lat: 49.256292, lng: -123.116226},
-	    zoom: 12,
-	    styles: style
+	    zoom: 12
 	  });
 
 	
@@ -39,39 +38,3 @@ function getIcon(est){
 }
 
 
-
-var style = [
-	    {
-	        "featureType": "all",
-	        "elementType": "all",
-	        "stylers": [
-	            {
-	                "visibility": "simplified"
-	            },
-	            {
-	                "invert_lightness": true
-	            },
-	            {
-	                "saturation": -94
-	            },
-	            {
-	                "lightness": 25
-	            },
-	            {
-	                "gamma": 0.96
-	            }
-	        ]
-	    },
-	    {
-	        "featureType": "poi",
-	        "elementType": "all",
-	        "stylers": [
-	            {
-	                "visibility": "off"
-	            },
-	            {
-	                "color": "#000000"
-	            }
-	        ]
-	    }
-	]

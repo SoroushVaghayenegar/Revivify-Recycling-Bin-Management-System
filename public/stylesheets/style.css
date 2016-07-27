@@ -48,3 +48,10 @@ input{
 #pickup_tr{
 	background-color: #29a329;
 }
+
+.btn-success:hover span {display:none}
+.btn-success:hover {
+	background-color: #d9534f;
+	border-color: #d9534f;
+}
+.btn-success:hover:before {content:"Remove from pickup"}

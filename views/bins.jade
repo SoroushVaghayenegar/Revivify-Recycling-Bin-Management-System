@@ -24,7 +24,8 @@ block content
                   td #{bin.time}
                   td #{bin.last_pickup}
                   td 
-                    button.btn.btn-success(onclick="removePickup('#{bin._id}', this)") On Pickup
+                    button.btn.btn-success(onclick="removePickup('#{bin._id}', this)") 
+                      span On Pickup
                       img.loading(src="images/loading.gif", style="width: 20%")
                   td 
                     a.btn.btn-lg.btn-info(href='#', role='button') Bin Settings

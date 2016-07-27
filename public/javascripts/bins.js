@@ -26,3 +26,5 @@ function removePickup(id){
 	}, 500);
 
 }
+
+

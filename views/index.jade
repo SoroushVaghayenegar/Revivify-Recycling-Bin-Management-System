@@ -6,20 +6,26 @@ block content
       .jumbotron
         h1(style = "text-align: center;") Textile Recycling Bin Management System
         
+        #map-info
+          h2
+            Bin Fill %
+          br
+          img(src= "/images/pinred.png") 
+          span  90-100%
+          br
+          br  
+          img(src= "/images/pinyellow.png") 
+          span   70-90%
+          br
+          br 
+          img(src= "/images/pingreen.png")
+          span   50-70%
+          br
+          br 
+          img(src= "/images/pinwhite.png")
+          span   0-50%
         #map
         script(src='javascripts/map.js')
-        
-        
-        h2(style = "text-align: center;")
-          Bin Fill %:
-          img(src= "/images/pinred.png") 
-          span 90-100% 
-          img(src= "/images/pinyellow.png") 
-          span 70-90% 
-          img(src= "/images/pingreen.png")
-          span 50-70% 
-          img(src= "/images/pinwhite.png")
-          span 0-50%
 
         script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAOTTSJcMkA7x7JzaP0Z7NpPzfl5m6tsu8&callback=initMap'
     async defer) 

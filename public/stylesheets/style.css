@@ -1,12 +1,11 @@
 body {
-  background-image: url("../images/pattern.png");
+  background-image: url("../images/pattern1.png");
+  /*color: white;*/
 }
 
 
 
 table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
     text-align: center;
 }
 
@@ -18,10 +17,33 @@ input{
 	display: none;
 }
 
+#map-info{
+	width:15%;
+	float: left;
+	text-align: center;
+	vertical-align: middle;
+}
+
 #map{
 	height: 500px;
+	width:85%;
 }
 
 #inputlng , #inputlat{
 	display: none;
+}
+
+.jumbotron{
+	background-color: gray;
+	color: white;
+	background-image: url("../images/pattern1.png");
+	background: rgba(0,0,0,0.5);
+}
+
+#nonepickup_tr{
+	background-color: #007acc;
+}
+
+#pickup_tr{
+	background-color: #29a329;
 }

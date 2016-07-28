@@ -140,7 +140,7 @@ router.put('/add-to-pickup/', function(req, res){
 	// Set our internal DB variable
 	
 	var db = req.db;
-	var id = req.body.id;
+	var id = parseInt(req.body.id);
 	// var on_pickup = req.body.on_pickup
 	
 	//Set our collection
@@ -164,7 +164,7 @@ router.put('/remove-pickup/', function(req, res){
 
 	// Set our internal DB variable
 	var db = req.db;
-	var id = req.body.id;
+	var id = parseInt(req.body.id);
 	// var on_pickup = req.body.on_pickup
 	
 	//Set our collection

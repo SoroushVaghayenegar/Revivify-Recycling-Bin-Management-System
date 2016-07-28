@@ -27,11 +27,11 @@ function initMap() {
 }
 
 function getIcon(est){
-	if(est <= 50)
+	if(est < 50)
 		return 'images/pinwhite.png';
-	else if(est > 50 && est <= 70)
+	else if(est >= 50 && est < 70)
 		return 'images/pingreen.png';
-	else if(est > 70 && est <= 90)
+	else if(est >= 70 && est < 90)
 		return 'images/pinyellow.png';
 	else
 		return 'images/pinred.png';

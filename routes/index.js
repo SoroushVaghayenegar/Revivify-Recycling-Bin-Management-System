@@ -45,10 +45,12 @@ router.put('/update-bin', function(req, res){
 	var db = req.db;
 
 	//Get our form values from "name attributes"
-	var est = req.query.est;
-	var time = req.query.time;
-	var id = req.query.id;
+	var data = req.query.data;
+	var time = parseInt(req.query.time);
+	var id = parseInt(req.query.id);
 
+	var est = data.substring(0, data.indexOf(','));
+    var weight = data.substring(data.indexOf(',')+1 , data.length); 
 	//Set our collection
 	var collection = db.get('binscollection');
 
@@ -56,7 +58,8 @@ router.put('/update-bin', function(req, res){
 	collection.update( 
 		{ _id: id }, 
 		{ $set: { 
-			"est" : est,
+			"est" : parseInt(est),
+			"weight" : parseInt(weight),
 			"time" : time} },
 		function(err, doc){
 			if(err){
@@ -97,8 +100,7 @@ router.post('/add-bin', function(req, res){
 	var db = req.db;
 
 	//Get our form values from "name attributes"
-	var ssid = req.body.ssid;
-	var password = req.body.password;
+	var id = parseInt(req.body.id);
 	var location = req.body.location;
 	var lat = req.body.lat;
 	var lng = req.body.lng;
@@ -108,8 +110,7 @@ router.post('/add-bin', function(req, res){
 
 	//submit to the DB
 	collection.insert({
-		"ssid" : ssid,
-		"password" : password,
+		"_id" : id,
 		"location" : location,
 		"weight" : 0,
 		"est" : 0,

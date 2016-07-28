@@ -9,13 +9,10 @@ block content
         p - Now fill out the following information for the wi-fi and bin information: 
         
         form#formAddBin(name="addbin",method="post",action="/add-bin")
-          |SSID:  
-          input#inputssid(type="text", placeholder="SSID", name="ssid")
+          |Device ID: 
+          input#inputid(type="text", placeholder="Get the ID from Particle.io Dashboard", name="id")
           br
-          |Password: 
-          input#inputpassword(type="text", placeholder="Password", name="password")
-          br
-          |Location  
+          |Location:  
           input#inputlocation(type="text", placeholder="Type and pick one from the list before submitting", name="location")
           br
           input#inputlat(type="text", name="lat")

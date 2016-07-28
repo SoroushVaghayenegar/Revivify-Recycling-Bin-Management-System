@@ -25,4 +25,17 @@ function removePickup(id){
 
 }
 
+function removeBin(id){
+	$.ajax({
+		type: 'DELETE',
+		url: '/remove-bin/',
+		data: {
+			id: id
+		}
+	});
+	setTimeout(function(){
+		$('#tables').load(document.URL +  ' #tables');
+	}, 200);
+}
+
 

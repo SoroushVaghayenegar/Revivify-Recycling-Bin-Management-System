@@ -1,4 +1,5 @@
 var express = require('express');
+var dateFormat = require('dateformat');
 var router = express.Router();
 
 /* GET home page. */
@@ -24,10 +25,17 @@ router.get('/bins', function(req, res) {
     collection.find({},{},function(e,docs){
     	docs.forEach(function(item){
     		if(item.time == null)
-    			item.time = "NOT SET";
+    			item.time = "Not logged yet";
     		else{
     			var t = new Date(item.time);
-    			item.time = t;
+    			item.time = dateFormat(t, "dddd, mmmm dS, yyyy, h:MM:ss TT");;
+    		}
+
+    		if(item.last_pickup == null)
+    			item.last_pickup = "Not logged yet";
+    		else{
+    			var t = new Date(item.last_pickup);
+    			item.last_pickup = dateFormat(t, "dddd, mmmm dS, yyyy, h:MM:ss TT");;
     		}
     	})
     	
@@ -46,7 +54,7 @@ router.put('/update-bin', function(req, res){
 
 	//Get our form values from "name attributes"
 	var data = req.query.data;
-	var time = parseInt(req.query.time);
+	var time = req.query.time;
 	var id = parseInt(req.query.id);
 
 	var est = data.substring(0, data.indexOf(','));
@@ -64,10 +72,10 @@ router.put('/update-bin', function(req, res){
 		function(err, doc){
 			if(err){
 				//if failed return err
-				res.send("problem adding bin to pickup");
+				res.status(500).send();
 			}
 			else{
-				res.send("Bin Updated")
+				res.status(200).send();
 			}
 			
 	});
@@ -115,7 +123,7 @@ router.post('/add-bin', function(req, res){
 		"weight" : 0,
 		"est" : 0,
 		"time" : null,
-		"last_pickup" : "",
+		"last_pickup" : null,
 		"on_pickup" : false,
 		"lat" : lat,
 		"lng" : lng
@@ -123,7 +131,7 @@ router.post('/add-bin', function(req, res){
 	}, function(err, doc){
 		if(err){
 			//if failed return err
-			res.send("problem adding bin to database");
+			res.status(500).send();
 		}
 		else{
 			//forward to list page on success
@@ -152,7 +160,7 @@ router.put('/add-to-pickup/', function(req, res){
 		function(err, doc){
 			if(err){
 				//if failed return err
-				res.send("problem adding bin to pickup");
+				res.status(500).send();
 			}
 			
 	});
@@ -165,22 +173,40 @@ router.put('/remove-pickup/', function(req, res){
 	// Set our internal DB variable
 	var db = req.db;
 	var id = parseInt(req.body.id);
-	// var on_pickup = req.body.on_pickup
+	var time = new Date();
 	
 	//Set our collection
 	var collection = db.get('binscollection');
 
 	collection.update( 
 		{ _id: id }, 
-		{ $set: { "on_pickup": false } },
+		{ $set: { 
+			"on_pickup": false,
+			"last_pickup" : time } },
 		function(err, doc){
 			if(err){
 				//if failed return err
-				res.send("problem adding bin to pickup");
+				res.status(500).send();
 			}
-			
-	});
-
+		});
 });
 
+/* DELETE to remove bin */
+router.delete('/remove-bin/', function(req, res){
+
+	// Set our internal DB variable
+	var db = req.db;
+	var id = parseInt(req.body.id);
+
+	//Set our collection
+	var collection = db.get('binscollection');
+
+	collection.remove( 
+		{ _id: id }, 
+		function(err,doc){
+			if(err){
+				res.status(500).send();
+			}
+	})
+});
 module.exports = router;

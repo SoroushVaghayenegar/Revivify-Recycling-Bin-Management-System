@@ -32,7 +32,7 @@ router.get('/bins', function(req, res) {
     		}
 
     		if(item.last_pickup == null)
-    			item.last_pickup = "Not logged yet";
+    			item.last_pickup = "Never been picked up";
     		else{
     			var t = new Date(item.last_pickup);
     			item.last_pickup = dateFormat(t, "dddd, mmmm dS, yyyy, h:MM:ss TT");;
@@ -55,7 +55,7 @@ router.put('/update-bin', function(req, res){
 	//Get our form values from "name attributes"
 	var data = req.query.data;
 	var time = req.query.time;
-	var id = parseInt(req.query.id);
+	var id = req.query.id;
 
 	var est = data.substring(0, data.indexOf(','));
     var weight = data.substring(data.indexOf(',')+1 , data.length); 
@@ -64,7 +64,7 @@ router.put('/update-bin', function(req, res){
 
 	//update bin
 	collection.update( 
-		{ _id: id }, 
+		{ id: id }, 
 		{ $set: { 
 			"est" : parseInt(est),
 			"weight" : parseInt(weight),
@@ -108,7 +108,7 @@ router.post('/add-bin', function(req, res){
 	var db = req.db;
 
 	//Get our form values from "name attributes"
-	var id = parseInt(req.body.id);
+	var id = req.body.id;
 	var location = req.body.location;
 	var lat = req.body.lat;
 	var lng = req.body.lng;
@@ -118,7 +118,7 @@ router.post('/add-bin', function(req, res){
 
 	//submit to the DB
 	collection.insert({
-		"_id" : id,
+		"id" : id,
 		"location" : location,
 		"weight" : 0,
 		"est" : 0,
@@ -148,7 +148,7 @@ router.put('/add-to-pickup/', function(req, res){
 	// Set our internal DB variable
 	
 	var db = req.db;
-	var id = parseInt(req.body.id);
+	var id = req.body.id;
 	// var on_pickup = req.body.on_pickup
 	
 	//Set our collection
@@ -172,7 +172,7 @@ router.put('/remove-pickup/', function(req, res){
 
 	// Set our internal DB variable
 	var db = req.db;
-	var id = parseInt(req.body.id);
+	var id = req.body.id;
 	var time = new Date();
 	
 	//Set our collection
@@ -196,7 +196,7 @@ router.delete('/remove-bin/', function(req, res){
 
 	// Set our internal DB variable
 	var db = req.db;
-	var id = parseInt(req.body.id);
+	var id = req.body.id;
 
 	//Set our collection
 	var collection = db.get('binscollection');

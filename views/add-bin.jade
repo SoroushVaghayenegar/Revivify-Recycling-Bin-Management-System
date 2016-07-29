@@ -4,16 +4,17 @@ block content
   .container
       // Main component for a primary marketing message or call to action
       .jumbotron
-        p - Please connect to the local wi-fi named "Re-Vivify Bin"
-         
-        p - Now fill out the following information for the wi-fi and bin information: 
-        
+        br
+        h2 - Please use Device ID found in the Particle.io dashboard for your device and put it in the field below
+        br 
         form#formAddBin(name="addbin",method="post",action="/add-bin")
           |Device ID: 
           input#inputid(type="text", placeholder="Get the ID from Particle.io Dashboard", name="id")
           br
+          br
           |Location:  
           input#inputlocation(type="text", placeholder="Type and pick one from the list before submitting", name="location")
+          br
           br
           input#inputlat(type="text", name="lat")
           input#inputlng(type="text", name="lng")

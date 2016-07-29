@@ -28,14 +28,14 @@ router.get('/bins', function(req, res) {
     			item.time = "Not logged yet";
     		else{
     			var t = new Date(item.time);
-    			item.time = dateFormat(t, "dddd, mmmm dS, yyyy, h:MM:ss TT");;
+    			item.time = dateFormat(t, "dddd, mmmm dS, yyyy, h:MM:ss TT Z");;
     		}
 
     		if(item.last_pickup == null)
     			item.last_pickup = "Never been picked up";
     		else{
     			var t = new Date(item.last_pickup);
-    			item.last_pickup = dateFormat(t, "dddd, mmmm dS, yyyy, h:MM:ss TT");;
+    			item.last_pickup = dateFormat(t, "dddd, mmmm dS, yyyy, h:MM:ss TT Z");;
     		}
     	})
     	

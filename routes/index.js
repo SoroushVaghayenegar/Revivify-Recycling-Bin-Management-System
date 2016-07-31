@@ -18,7 +18,7 @@ router.get('/getbins', function(req, res) {
     });
 });
 
-/* GET logpage page. */
+/* GET bins page. */
 router.get('/bins', function(req, res) {
     var db = req.db;
     var collection = db.get('binscollection');
